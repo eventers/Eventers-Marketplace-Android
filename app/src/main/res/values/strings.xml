@@ -1,0 +1,7 @@
+<resources>
+    <string name="default_notification_channel_id">default</string>
+    <string name="privacy_policy"><![CDATA[I accept Eventers Privacy Policy & Terms of service]]></string>
+    <string name="facebook_app_id">Replace with fb app id</string>
+    <string name="fb_login_protocol_scheme">Replace with fb login scheme</string>
+
+</resources>

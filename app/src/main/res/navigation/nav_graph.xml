@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_signup_graph"
+    app:startDestination="@id/signupScreenFragment">
+
+    <fragment
+        android:id="@+id/signupScreenFragment"
+        android:name="com.eventersapp.consumer.ui.signup.SignupScreenFragment"
+        android:label="SignupScreenFragment"
+        tools:layout="@layout/signup_screen_fragment">
+        <action
+            android:id="@+id/action_signupScreenFragment_to_phoneNumberFragment"
+            app:destination="@id/phoneNumberFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_signupScreenFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/signupScreenFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/phoneNumberFragment"
+        android:name="com.eventersapp.consumer.ui.signup.PhoneNumberFragment"
+        android:label="PhoneNumberFragment"
+        tools:layout="@layout/phone_number_fragment">
+        <action
+            android:id="@+id/action_phoneNumberFragment_to_phoneOTPFragment"
+            app:destination="@id/phoneOTPFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/phoneOTPFragment"
+        android:name="com.eventersapp.consumer.ui.signup.PhoneOTPFragment"
+        android:label="PhoneOTPFragment"
+        tools:layout="@layout/phone_otp_fragment">
+        <argument
+            android:name="phone_number"
+            app:argType="string" />
+        <argument
+            android:name="country_code"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_phoneOTPFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/signupScreenFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.eventersapp.consumer.ui.dashboard.DashboardFragment"
+        android:label="DashboardFragment"
+        tools:layout="@layout/dashboard_fragment">
+        <action
+            android:id="@+id/action_dashboardFragment_to_signupScreenFragment"
+            app:destination="@id/signupScreenFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_createEventFragment"
+            app:destination="@id/createEventFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_resellOrSendEventFragment"
+            app:destination="@id/resellOrSendEventFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_buyEventFragment"
+            app:destination="@id/buyEventFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/createEventFragment"
+        android:name="com.eventersapp.consumer.ui.blockchain.CreateEventFragment"
+        android:label="CreateEventFragment"
+        tools:layout="@layout/fragment_create_event">
+        <action
+            android:id="@+id/action_createEventFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/resellOrSendEventFragment"
+        android:name="com.eventersapp.consumer.ui.blockchain.ResellOrSendEventFragment"
+        android:label="ResellOrSendEventFragment"
+        tools:layout="@layout/fragment_resell_or_send_event">
+
+        <argument
+            android:name="my_event_data"
+            app:argType="com.eventersapp.consumer.data.model.MyEventListResponse" />
+        <action
+            android:id="@+id/action_resellOrSendEventFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/buyEventFragment"
+        android:name="com.eventersapp.consumer.ui.blockchain.BuyEventFragment"
+        android:label="BuyEventFragment"
+        tools:layout="@layout/fragment_buy_event">
+
+        <argument
+            android:name="all_event_data"
+            app:argType="com.eventersapp.consumer.data.model.AllEventListResponse" />
+        <action
+            android:id="@+id/action_buyEventFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="true"/>
+
+    </fragment>
+</navigation>

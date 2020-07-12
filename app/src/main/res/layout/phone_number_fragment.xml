@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.eventersapp.consumer.ui.viewmodel.PhoneNumberViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp">
+
+                <ImageView
+                    android:id="@+id/image_phone"
+                    android:layout_width="75dp"
+                    android:layout_height="130dp"
+                    android:layout_marginTop="64dp"
+                    android:contentDescription="Image"
+                    android:src="@drawable/phone_img"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginRight="32dp"
+                    android:background="@drawable/white_bg_light_gray_border_24r"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="12dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="12dp"
+                    android:weightSum="100"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/image_phone">
+
+                    <com.rilixtech.CountryCodePicker
+                        android:id="@+id/country_code_picker"
+                        style="@style/TextViewHeaderStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="25"
+                        android:drawableEnd="@drawable/ic_arrow_drop_down"
+                        android:gravity="center_vertical"
+                        app:ccp_defaultNameCode="IN" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="24dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:background="#c4d1db" />
+
+                    <EditText
+                        android:id="@+id/input_phone_number"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="75"
+                        android:background="@null"
+                        android:fontFamily="@font/calibri"
+                        android:gravity="center_vertical"
+                        android:hint="Enter phone number"
+                        android:importantForAutofill="no"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:text="@={viewmodel.phoneNumber}"
+                        android:textColor="@color/black"
+                        android:textColorHint="#3c4852"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <CheckBox
+                    android:id="@+id/check_box_privacy_policy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginRight="32dp"
+                    android:checked="@={viewmodel.checkedValuePrivacyPolicy}"
+                    android:fontFamily="@font/calibri"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:text="@string/privacy_policy"
+                    android:textColor="#3c4852"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+                <Button
+                    android:id="@+id/button_submit"
+                    style="@style/ButtonActionStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginRight="32dp"
+                    android:onClick="@{viewmodel::onSubmitButtonClick}"
+                    android:text="Submit"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/check_box_privacy_policy" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

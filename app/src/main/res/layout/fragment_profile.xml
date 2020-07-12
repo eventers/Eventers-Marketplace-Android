@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.eventersapp.consumer.ui.viewmodel.ProfileViewModel" />
+    </data>
+
+    <ScrollView xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fillViewport="true"
+        tools:context=".ProfileFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:padding="16dp"
+            tools:ignore="ExtraText">
+
+            <TextView
+                android:id="@+id/profile_tv_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:drawableStart="@drawable/ic_outline_edit"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/calibri"
+                android:text="Edit"
+                android:textColor="#808080"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/image_profile_user"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp" />
+
+            <TextView
+                android:id="@+id/text_user_name"
+                style="@style/TextViewHeaderStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:textColor="#808080" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_profile_phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FFFFFF"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/calibri"
+                    android:hint="Contact Number"
+                    android:inputType="numberSigned"
+                    android:textColor="#808080"
+                    android:textColorHint="#bdbdbd"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_profile_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FFFFFF"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/calibri"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:textColor="#808080"
+                    android:textColorHint="#bdbdbd"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_profile_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FFFFFF"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="@font/calibri"
+                    android:hint="Address"
+                    android:inputType="text|textNoSuggestions"
+                    android:textColor="@color/colorAccent"
+                    android:textColorHint="#bdbdbd"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/text_contact"
+                style="@style/TextViewHeaderStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:drawableRight="@drawable/ic_baseline_arrow_right"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="Help / Contact us"
+                android:textColor="#808080" />
+
+            <TextView
+                android:id="@+id/text_logout"
+                style="@style/TextViewHeaderStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawableRight="@drawable/ic_baseline_arrow_right"
+                android:onClick="@{viewmodel::onLogoutButtonClick}"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="Logout"
+                android:textColor="#f98a75" />
+        </LinearLayout>
+    </ScrollView>
+
+</layout>

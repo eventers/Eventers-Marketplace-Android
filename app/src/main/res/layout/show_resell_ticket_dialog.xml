@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/text_enter_resell_amount"
+        style="@style/TextViewTitleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter resell amount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_resell_amount"
+        style="@style/TextViewFormStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Resell Amount"
+        app:layout_constraintStart_toStartOf="@+id/text_enter_resell_amount"
+        app:layout_constraintTop_toBottomOf="@+id/text_enter_resell_amount" />
+
+    <EditText
+        android:id="@+id/input_resell_amount"
+        style="@style/EditTextFormStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:hint="Resell Amount"
+        android:inputType="numberSigned"
+        android:textColorHint="#bdbdbd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_resell_amount" />
+
+    <Button
+        android:id="@+id/button_resell"
+        style="@style/ButtonActionStyle"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Resell"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_resell_amount" />
+</androidx.constraintlayout.widget.ConstraintLayout>
