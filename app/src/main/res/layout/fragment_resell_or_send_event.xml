@@ -6,7 +6,7 @@
 
         <variable
             name="viewmodel"
-            type="com.eventersapp.consumer.ui.viewmodel.ResellOrSendEventViewModel" />
+            type="com.eventersapp.marketplace.ui.viewmodel.ResellOrSendEventViewModel" />
 
     </data>
 
@@ -158,29 +158,27 @@
                     <Button
                         android:id="@+id/button_resell"
                         style="@style/ButtonActionStyle"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="32dp"
                         android:layout_marginTop="48dp"
-                        android:layout_marginRight="32dp"
                         android:text="Resell"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/input_ticket_price" />
+                        app:layout_constraintTop_toBottomOf="@+id/input_ticket_price"
+                        app:layout_constraintWidth_percent="0.8" />
 
 
                     <Button
                         android:id="@+id/button_send"
                         style="@style/ButtonActionCancelStyle"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="32dp"
                         android:layout_marginTop="16dp"
-                        android:layout_marginRight="32dp"
                         android:text="Send"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/button_resell" />
+                        app:layout_constraintTop_toBottomOf="@+id/button_resell"
+                        app:layout_constraintWidth_percent="0.8" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
