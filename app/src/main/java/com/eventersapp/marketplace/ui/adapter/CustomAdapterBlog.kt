@@ -87,7 +87,7 @@ class CustomAdapterBlog : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 textBlogItemDescription.text = blog.excerpt
                 AppUtils.setGlideRoundedImage(
                     imageBlogItemUser,
-                    "https://inspire.eventersapp.com/content/images/size/w100/2020/02/nitika-1.jpeg"
+                    ""
                 )
                 textBlogItemUserName.text = "Nitika Garg"
             }

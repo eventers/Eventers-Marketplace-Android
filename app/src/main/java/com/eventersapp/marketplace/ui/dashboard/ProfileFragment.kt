@@ -23,7 +23,7 @@ import org.kodein.di.generic.instance
 class ProfileFragment : Fragment(), KodeinAware, View.OnClickListener {
 
     companion object {
-        private const val ADDRESS = "https://goalseeker.purestake.io/algorand/testnet/account/"
+        private const val ADDRESS = "<Algorand-URL>"//Replace with Algorand address url
     }
 
     override val kodein by closestKodein()
