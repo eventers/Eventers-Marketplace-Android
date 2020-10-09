@@ -56,8 +56,12 @@ class PassphraseVerifiedBottomDialogFragment : BottomSheetDialogFragment() {
     private fun setupUI() {
         dataBind.buttonAccept.setOnClickListener {
             dismiss()
-            findNavController().navigate(R.id.action_passphraseVerifiedBottomDialogFragment_to_accountDetailsFragment,
-                bundleOf("account_address" to viewModel.getAccountAddress(), "account_passphrase" to viewModel.getPassphrase())
+            findNavController().navigate(
+                R.id.action_passphraseVerifiedBottomDialogFragment_to_accountDetailsFragment,
+                bundleOf(
+                    "account_address" to viewModel.getAccountAddress(),
+                    "account_passphrase" to viewModel.getPassphrase()
+                )
             )
         }
     }

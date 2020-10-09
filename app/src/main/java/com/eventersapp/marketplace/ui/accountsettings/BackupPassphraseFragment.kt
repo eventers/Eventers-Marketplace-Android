@@ -2,7 +2,6 @@ package com.eventersapp.marketplace.ui.accountsettings
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,16 +13,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
-import com.algorand.algosdk.account.Account
 import com.eventersapp.marketplace.R
 import com.eventersapp.marketplace.databinding.FragmentBackupPassphraseBinding
 import com.eventersapp.marketplace.ui.adapter.CustomAdapterBackupPassphrase
 import com.eventersapp.marketplace.ui.viewmodel.BackupPassphraseViewModel
 import com.eventersapp.marketplace.util.AppConstants
-import org.bouncycastle.jce.provider.BouncyCastleProvider
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.closestKodein
-import java.security.Security
 
 class BackupPassphraseFragment : Fragment(), KodeinAware, View.OnClickListener {
 

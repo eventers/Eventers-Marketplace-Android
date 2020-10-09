@@ -100,7 +100,7 @@ class SignupScreenFragment : Fragment(), KodeinAware, View.OnClickListener {
             try {
                 val account = task.getResult(ApiException::class.java)
                 Log.i("Info", "firebaseAuthWithGoogle:" + account?.id)
-                viewModel.firebaseAuthWithGoogle(account?.idToken?:"")
+                viewModel.firebaseAuthWithGoogle(account?.idToken ?: "")
             } catch (e: ApiException) {
                 Log.i("Info", "Google sign in failed", e)
             }

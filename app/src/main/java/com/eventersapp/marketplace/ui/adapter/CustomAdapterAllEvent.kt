@@ -11,7 +11,6 @@ import com.eventersapp.marketplace.data.model.AllEventListResponse
 import com.eventersapp.marketplace.databinding.ListItemAllEventBinding
 import com.eventersapp.marketplace.util.AppConstants
 import com.eventersapp.marketplace.util.AppUtils
-import com.eventersapp.marketplace.util.AppUtils.base64StringToImage
 import com.eventersapp.marketplace.util.LoadingViewHolder
 
 class CustomAdapterAllEvent : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

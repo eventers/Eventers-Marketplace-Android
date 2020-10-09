@@ -19,7 +19,7 @@ class AccountSettingsViewModel(private val repository: AccountSettingsRepository
 
     private var accountList = ArrayList<Account>()
 
-   fun fetchAccounts() {
+    fun fetchAccounts() {
         viewModelScope.launch(Dispatchers.IO) {
             accountList = repository.fetchAccounts() as ArrayList<Account>
             withContext(Dispatchers.Main) {

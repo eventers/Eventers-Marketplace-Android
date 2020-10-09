@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -26,7 +25,6 @@ import com.eventersapp.marketplace.util.hide
 import com.eventersapp.marketplace.util.show
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.closestKodein
-import org.kodein.di.generic.instance
 
 
 class VerifyRecoveryPhraseFragment : Fragment(), KodeinAware {

@@ -7,7 +7,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.eventersapp.marketplace.R
 import com.eventersapp.marketplace.databinding.ListItemMnemonicBinding
-import com.eventersapp.marketplace.databinding.ListItemPassphraseBinding
 
 class CustomAdapterVerifyRecoveryPhrase :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {

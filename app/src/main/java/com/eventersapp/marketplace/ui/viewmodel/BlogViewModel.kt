@@ -64,12 +64,12 @@ class BlogViewModel(private val repository: BlogRepository) :
                 }
             } catch (e: ApiException) {
                 withContext(Dispatchers.Main) {
-                    _blogListLiveData.postValue(Event(State.error(e.message?:"")))
+                    _blogListLiveData.postValue(Event(State.error(e.message ?: "")))
                     _loadMoreListLiveData.value = false
                 }
             } catch (e: NoInternetException) {
                 withContext(Dispatchers.Main) {
-                    _blogListLiveData.postValue(Event(State.error(e.message?:"")))
+                    _blogListLiveData.postValue(Event(State.error(e.message ?: "")))
                     _loadMoreListLiveData.value = false
                 }
             }

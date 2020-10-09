@@ -103,7 +103,7 @@ class MyEventFragment : Fragment(), KodeinAware {
             when (state) {
                 is State.Loading -> {
                     if (!dataBind.myEventsSwipeRefreshLayout.isRefreshing)
-                    AppUtils.showProgressBar(requireContext())
+                        AppUtils.showProgressBar(requireContext())
                 }
                 is State.Success -> {
                     if (state.data.isNotEmpty()) {
