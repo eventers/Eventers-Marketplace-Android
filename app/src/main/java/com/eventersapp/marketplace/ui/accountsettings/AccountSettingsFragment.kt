@@ -32,7 +32,6 @@ class AccountSettingsFragment : Fragment(), KodeinAware, View.OnClickListener {
         ViewModelProvider(this, factory).get(AccountSettingsViewModel::class.java)
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         customAdapterAccount = CustomAdapterAccount(viewModel)
@@ -85,7 +84,7 @@ class AccountSettingsFragment : Fragment(), KodeinAware, View.OnClickListener {
 
     private fun initializeObserver() {
         viewModel.accountListLiveData.observe(viewLifecycleOwner, Observer {
-            customAdapterAccount.setData(it)
+            customAdapterAccount.submitList(it)
         })
     }
 

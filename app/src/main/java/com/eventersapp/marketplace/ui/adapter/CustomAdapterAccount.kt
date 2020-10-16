@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.eventersapp.marketplace.R
 import com.eventersapp.marketplace.data.model.Account
@@ -11,9 +13,7 @@ import com.eventersapp.marketplace.databinding.ListItemAccountBinding
 import com.eventersapp.marketplace.ui.viewmodel.AccountSettingsViewModel
 
 class CustomAdapterAccount(private val viewModel: AccountSettingsViewModel) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
-    private val myAccountList = ArrayList<Account>()
+    ListAdapter<Account, RecyclerView.ViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
@@ -27,19 +27,9 @@ class CustomAdapterAccount(private val viewModel: AccountSettingsViewModel) :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is ItemViewHolder -> {
-                myAccountList[position].let { holder.bindItems(it) }
+                holder.bindItems(getItem(position))
             }
         }
-    }
-
-    override fun getItemCount(): Int {
-        return myAccountList.size
-    }
-
-    fun setData(newMyAccount: ArrayList<Account>) {
-        myAccountList.clear()
-        myAccountList.addAll(newMyAccount)
-        notifyDataSetChanged()
     }
 
     inner class ItemViewHolder(val binding: ListItemAccountBinding) :
@@ -67,6 +57,16 @@ class CustomAdapterAccount(private val viewModel: AccountSettingsViewModel) :
             }
         }
 
+    }
+
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Account>() {
+            override fun areItemsTheSame(oldItem: Account, newItem: Account): Boolean =
+                oldItem.id == newItem.id
+
+            override fun areContentsTheSame(oldItem: Account, newItem: Account): Boolean =
+                oldItem == newItem
+        }
     }
 
 
