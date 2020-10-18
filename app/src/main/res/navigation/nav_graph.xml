@@ -192,6 +192,14 @@
         android:label="RecoverPassphraseFragment"
         tools:layout="@layout/fragment_recover_passphrase">
 
+        <action
+            android:id="@+id/action_recoverPassphraseFragment_to_scanFragment"
+            app:destination="@id/scanFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
     </fragment>
     <fragment
         android:id="@+id/backupPassphraseFragment"
@@ -251,4 +259,8 @@
             app:popUpToInclusive="true" />
 
     </fragment>
+    <fragment
+        android:id="@+id/scanFragment"
+        android:name="com.eventersapp.marketplace.ui.dashboard.ScanFragment"
+        android:label="ScanFragment" />
 </navigation>

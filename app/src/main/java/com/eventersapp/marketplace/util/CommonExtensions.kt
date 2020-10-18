@@ -1,6 +1,8 @@
 package com.eventersapp.marketplace.util
 
 import android.app.Activity
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -29,6 +31,12 @@ fun Activity.goToActivity(newActivity: Class<*>) {
 // used for show a toast message in the UI Thread
 fun Context.showToast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+}
+
+fun Context.copyToClipboard(text: CharSequence) {
+    val clipboard = this.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+    val clip = ClipData.newPlainText("label", text)
+    clipboard.setPrimaryClip(clip)
 }
 
 

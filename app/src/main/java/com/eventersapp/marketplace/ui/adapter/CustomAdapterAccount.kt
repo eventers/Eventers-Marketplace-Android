@@ -43,7 +43,7 @@ class CustomAdapterAccount(private val viewModel: AccountSettingsViewModel) :
                 myAccount.isSelected?.let {
                     radioButtonSelectAccount.isChecked = it
                 }
-                cardViewAccount.setOnClickListener {
+                radioButtonSelectAccount.setOnClickListener {
                     if (!radioButtonSelectAccount.isChecked) {
                         viewModel.updateAccountDetail(
                             myAccount.id,
@@ -53,6 +53,9 @@ class CustomAdapterAccount(private val viewModel: AccountSettingsViewModel) :
                             true
                         )
                     }
+                }
+                imageMoreActions.setOnClickListener {
+
                 }
             }
         }
