@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -11,6 +12,8 @@ import com.eventersapp.marketplace.R
 import com.eventersapp.marketplace.data.model.Account
 import com.eventersapp.marketplace.databinding.ListItemAccountBinding
 import com.eventersapp.marketplace.ui.viewmodel.AccountSettingsViewModel
+import com.eventersapp.marketplace.util.hide
+import com.eventersapp.marketplace.util.show
 
 class CustomAdapterAccount(private val viewModel: AccountSettingsViewModel) :
     ListAdapter<Account, RecyclerView.ViewHolder>(DIFF_CALLBACK) {
@@ -38,24 +41,25 @@ class CustomAdapterAccount(private val viewModel: AccountSettingsViewModel) :
         @SuppressLint("SetTextI18n")
         fun bindItems(myAccount: Account) {
             binding.apply {
-                radioButtonSelectAccount.isClickable = false
+                if(adapterPosition == 0)
+                    imageMoreActions.hide()
+                else
+                    imageMoreActions.show()
                 textAccountName.text = myAccount.name
                 myAccount.isSelected?.let {
                     radioButtonSelectAccount.isChecked = it
                 }
                 radioButtonSelectAccount.setOnClickListener {
-                    if (!radioButtonSelectAccount.isChecked) {
-                        viewModel.updateAccountDetail(
-                            myAccount.id,
-                            myAccount.name,
-                            myAccount.accountAddress,
-                            myAccount.passphrase,
-                            true
-                        )
-                    }
+                    viewModel.updateAccountDetail(
+                        myAccount.id,
+                        myAccount.name,
+                        myAccount.accountAddress,
+                        myAccount.passphrase,
+                        true
+                    )
                 }
                 imageMoreActions.setOnClickListener {
-
+                    Navigation.findNavController(it).navigate(R.id.action_accountSettingsFragment_to_accountSettingsMoreOptionBottomDialogFragment)
                 }
             }
         }

@@ -25,12 +25,6 @@ import com.journeyapps.barcodescanner.BarcodeEncoder
 class ShowPassphraseQRCodeBottomDialogFragment : BottomSheetDialogFragment(),
     View.OnClickListener {
 
-    companion object {
-        fun newInstance(): ShowPassphraseQRCodeBottomDialogFragment {
-            return ShowPassphraseQRCodeBottomDialogFragment()
-        }
-    }
-
     private lateinit var dataBind: ShowPassphraseQrCodeBottomSheetBinding
     private lateinit var bitmap: Bitmap
     private var passphrase = ""

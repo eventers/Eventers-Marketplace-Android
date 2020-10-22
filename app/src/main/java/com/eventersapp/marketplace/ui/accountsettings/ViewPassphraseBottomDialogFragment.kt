@@ -1,80 +1,70 @@
 package com.eventersapp.marketplace.ui.accountsettings
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
+import androidx.annotation.Nullable
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import com.eventersapp.marketplace.R
-import com.eventersapp.marketplace.databinding.FragmentBackupPassphraseBinding
+import com.eventersapp.marketplace.databinding.ViewPassphraseBottomSheetBinding
 import com.eventersapp.marketplace.ui.adapter.CustomAdapterBackupPassphrase
-import com.eventersapp.marketplace.ui.viewmodel.BackupPassphraseViewModel
-import com.eventersapp.marketplace.util.AppConstants
-import org.kodein.di.KodeinAware
-import org.kodein.di.android.x.closestKodein
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class BackupPassphraseFragment : Fragment(), KodeinAware, View.OnClickListener {
+class ViewPassphraseBottomDialogFragment : BottomSheetDialogFragment(),
+    View.OnClickListener {
 
-    override val kodein by closestKodein()
-    private lateinit var dataBind: FragmentBackupPassphraseBinding
+
+    private lateinit var dataBind: ViewPassphraseBottomSheetBinding
     private lateinit var customAdapterBackupPassphrase: CustomAdapterBackupPassphrase
-    private val viewModel: BackupPassphraseViewModel by lazy {
-        ViewModelProvider(requireActivity()).get(BackupPassphraseViewModel::class.java)
+
+    override fun getTheme(): Int = R.style.BottomSheetDialogTheme
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        return BottomSheetDialog(requireContext(), theme)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        customAdapterBackupPassphrase = CustomAdapterBackupPassphrase()
-        generatePassPhrase()
-    }
-
+    @Nullable
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        @Nullable container: ViewGroup?,
+        @Nullable savedInstanceState: Bundle?
     ): View? {
-
         dataBind = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_backup_passphrase,
+            R.layout.view_passphrase_bottom_sheet,
             container,
             false
         )
-        dataBind.viewmodel = viewModel
+
         return dataBind.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupUI()
-        initializeObserver()
     }
 
-    override fun onClick(view: View) {
-        when (view.id) {
+
+    override fun onClick(view: View?) {
+        when (view?.id) {
             R.id.text_show_qr -> {
-                showPassphraseQRCode()
+                //showPassphraseQRCode()
             }
             R.id.text_share_passphrase -> {
-                sharePassphrase()
+                //sharePassphrase()
             }
         }
     }
 
     private fun setupUI() {
-        (activity as AppCompatActivity?)?.setSupportActionBar(dataBind.toolbar)
-        dataBind.toolbar.setNavigationIcon(R.drawable.ic_arrow_back)
-        dataBind.toolbar.setNavigationOnClickListener {
-            findNavController().popBackStack()
-        }
         val mLayoutManager = GridLayoutManager(activity, 3)
         dataBind.recyclerViewToMnemonic.apply {
             layoutManager = mLayoutManager
@@ -85,18 +75,7 @@ class BackupPassphraseFragment : Fragment(), KodeinAware, View.OnClickListener {
         dataBind.textSharePassphrase.setOnClickListener(this)
     }
 
-    private fun initializeObserver() {
-        viewModel.passphraseListLiveData.observe(viewLifecycleOwner, Observer {
-            customAdapterBackupPassphrase.setData(it)
-        })
-
-    }
-
-    private fun generatePassPhrase() {
-        viewModel.generatePassPhrase()
-    }
-
-    private fun sharePassphrase() {
+    /*private fun sharePassphrase() {
         val sharingIntent = Intent(Intent.ACTION_SEND)
         sharingIntent.type = "text/plain"
         val shareBody = viewModel.getPassphrase()
@@ -110,7 +89,9 @@ class BackupPassphraseFragment : Fragment(), KodeinAware, View.OnClickListener {
 
     private fun showPassphraseQRCode() {
         findNavController().navigate(R.id.action_backupPassphraseFragment_to_showPassphraseQRCodeBottomDialogFragment,
-        bundleOf("passphrase" to viewModel.getPassphrase()))
+            bundleOf("passphrase" to viewModel.getPassphrase())
+        )
 
-    }
+    }*/
+
 }

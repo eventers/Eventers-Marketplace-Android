@@ -135,11 +135,11 @@ class ScanFragment : Fragment() {
     private fun showScanResult(text: String) {
         val showScanResultOfQRCodeBottomDialogFragment: ShowScanResultOfQRCodeBottomDialogFragment =
             ShowScanResultOfQRCodeBottomDialogFragment.newInstance()
-        val args = Bundle()
-        args.putString("scan_result", text)
-        showScanResultOfQRCodeBottomDialogFragment.arguments = args
+        val arg = Bundle()
+        arg.putString("scan_result", text)
+        showScanResultOfQRCodeBottomDialogFragment.arguments = arg
         showScanResultOfQRCodeBottomDialogFragment.show(
-            requireActivity().supportFragmentManager,
+            childFragmentManager,
             AppConstants.TAG_SHOW_SCAN_RESULT_OF_QR_CODE_BOTTOM_SHEET_FRAGMENT
         )
     }

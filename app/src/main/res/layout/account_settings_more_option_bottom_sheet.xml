@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/text_close_bottom_sheet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="@drawable/blue_oval_bg"
+            android:fontFamily="@font/calibri"
+            android:gravity="center"
+            android:paddingStart="12dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="8dp"
+            android:text="X"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/text_rekey_account"
+            style="@style/TextViewSimpleStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:drawableStart="@drawable/ic_vpn_key"
+            android:drawablePadding="16dp"
+            android:drawableTint="@color/gray"
+            android:foreground="?selectableItemBackground"
+            android:gravity="center_vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="Rekey Account" />
+
+        <TextView
+            android:id="@+id/text_view_passphrase"
+            style="@style/TextViewSimpleStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:drawableStart="@drawable/ic_outline_lock"
+            android:drawablePadding="16dp"
+            android:drawableTint="@color/gray"
+            android:foreground="?selectableItemBackground"
+            android:gravity="center_vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="View Passphrase" />
+
+        <TextView
+            android:id="@+id/text_edit_account_name"
+            style="@style/TextViewSimpleStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:drawableStart="@drawable/ic_outline_edit"
+            android:drawablePadding="16dp"
+            android:drawableTint="@color/gray"
+            android:foreground="?selectableItemBackground"
+            android:gravity="center_vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="Edit Account Name" />
+
+        <TextView
+            android:id="@+id/text_remove_account"
+            style="@style/TextViewSimpleStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:drawableStart="@drawable/ic_outline_delete"
+            android:drawablePadding="16dp"
+            android:drawableTint="@color/red"
+            android:foreground="?selectableItemBackground"
+            android:gravity="center_vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="Remove Account"
+            android:textColor="@color/red" />
+
+    </LinearLayout>
+</layout>
