@@ -34,7 +34,7 @@ interface AccountsDao {
     suspend fun updateAccount(account: Account): Int
 
     @Delete
-    suspend fun delete(account: Account)
+    suspend fun deleteAccount(account: Account): Int
 
 
 }

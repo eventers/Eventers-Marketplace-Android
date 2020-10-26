@@ -57,6 +57,11 @@ class AccountSettingsFragment : Fragment(), KodeinAware, View.OnClickListener {
         initializeObserver()
     }
 
+    override fun onStart() {
+        super.onStart()
+        fetchAccounts()
+    }
+
     override fun onClick(view: View?) {
         when (view?.id) {
             R.id.fab_add_new_account -> {
@@ -78,7 +83,6 @@ class AccountSettingsFragment : Fragment(), KodeinAware, View.OnClickListener {
             itemAnimator = DefaultItemAnimator()
             adapter = customAdapterAccount
         }
-        fetchAccounts()
         dataBind.fabAddNewAccount.setOnClickListener(this)
     }
 

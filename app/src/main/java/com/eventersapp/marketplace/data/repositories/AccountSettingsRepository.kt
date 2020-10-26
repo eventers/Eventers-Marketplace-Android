@@ -21,4 +21,7 @@ class AccountSettingsRepository(
         return db.getAccountsDao().updateIsSelectedColumn()
     }
 
+    suspend fun deleteAccount(account: Account): Int {
+        return db.getAccountsDao().deleteAccount(account)
+    }
 }

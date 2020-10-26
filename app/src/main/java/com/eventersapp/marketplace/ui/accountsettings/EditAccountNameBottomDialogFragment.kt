@@ -7,21 +7,42 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.Nullable
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.eventersapp.marketplace.R
+import com.eventersapp.marketplace.data.model.Account
 import com.eventersapp.marketplace.databinding.EditAccountNameBottomSheetBinding
+import com.eventersapp.marketplace.ui.viewmodel.AccountSettingsViewModel
+import com.eventersapp.marketplace.ui.viewmodelfactory.AccountSettingsViewModelFactory
+import com.eventersapp.marketplace.util.showToast
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import org.kodein.di.KodeinAware
+import org.kodein.di.android.x.closestKodein
+import org.kodein.di.generic.instance
 
-class EditAccountNameBottomDialogFragment : BottomSheetDialogFragment(),
+class EditAccountNameBottomDialogFragment : BottomSheetDialogFragment(), KodeinAware,
     View.OnClickListener {
 
-
+    override val kodein by closestKodein()
     private lateinit var dataBind: EditAccountNameBottomSheetBinding
+    private val factory: AccountSettingsViewModelFactory by instance()
+    private val viewModel: AccountSettingsViewModel by lazy {
+        ViewModelProvider(this, factory).get(AccountSettingsViewModel::class.java)
+    }
+    private lateinit var myAccount: Account
 
     override fun getTheme(): Int = R.style.BottomSheetDialogTheme
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return BottomSheetDialog(requireContext(), theme)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (arguments?.getSerializable("account_detail") != null)
+            myAccount = arguments?.getSerializable("account_detail") as Account
     }
 
     @Nullable
@@ -43,6 +64,7 @@ class EditAccountNameBottomDialogFragment : BottomSheetDialogFragment(),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupUI()
+        initializeObserver()
     }
 
 
@@ -52,7 +74,13 @@ class EditAccountNameBottomDialogFragment : BottomSheetDialogFragment(),
                 dismiss()
             }
             R.id.button_done -> {
-
+                viewModel.updateAccountDetail(
+                    myAccount.id,
+                    dataBind.inputAccountName.text.toString(),
+                    myAccount.accountAddress,
+                    myAccount.passphrase,
+                    myAccount.isSelected
+                )
             }
         }
     }
@@ -60,6 +88,14 @@ class EditAccountNameBottomDialogFragment : BottomSheetDialogFragment(),
     private fun setupUI() {
         dataBind.textCloseBottomSheet.setOnClickListener(this)
         dataBind.buttonDone.setOnClickListener(this)
+    }
+
+    private fun initializeObserver() {
+        viewModel.accountListLiveData.observe(viewLifecycleOwner, Observer {
+            requireContext().showToast("Account name updated successfully")
+            dismiss()
+            findNavController().popBackStack()
+        })
     }
 
 

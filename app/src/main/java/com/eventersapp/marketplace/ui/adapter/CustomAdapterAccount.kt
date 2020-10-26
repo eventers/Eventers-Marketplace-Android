@@ -3,6 +3,7 @@ package com.eventersapp.marketplace.ui.adapter
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DiffUtil
@@ -59,7 +60,8 @@ class CustomAdapterAccount(private val viewModel: AccountSettingsViewModel) :
                     )
                 }
                 imageMoreActions.setOnClickListener {
-                    Navigation.findNavController(it).navigate(R.id.action_accountSettingsFragment_to_accountSettingsMoreOptionBottomDialogFragment)
+                    Navigation.findNavController(it).navigate(R.id.action_accountSettingsFragment_to_accountSettingsMoreOptionBottomDialogFragment,
+                    bundleOf("account_detail" to myAccount))
                 }
             }
         }

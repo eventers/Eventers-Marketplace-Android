@@ -11,7 +11,8 @@
         app:cardCornerRadius="4dp"
         app:cardElevation="4dp"
         app:cardUseCompatPadding="true"
-        app:contentPadding="8dp">
+        app:contentPadding="8dp"
+        android:focusable="true">
 
         <LinearLayout
             android:layout_width="match_parent"
