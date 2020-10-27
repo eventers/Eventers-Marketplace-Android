@@ -4,14 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.algorand.algosdk.algod.client.ApiException
 import com.algorand.algosdk.algod.client.model.TransactionID
 import com.eventersapp.marketplace.data.model.Account
 import com.eventersapp.marketplace.data.repositories.AccountSettingsRepository
 import com.eventersapp.marketplace.ui.rekeyaccount.SubmitTx
 import com.eventersapp.marketplace.util.Event
 import com.eventersapp.marketplace.util.State
-import com.fasterxml.jackson.core.JsonProcessingException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -64,6 +62,25 @@ class AccountSettingsViewModel(private val repository: AccountSettingsRepository
                 accountList.removeAt(0)
                 accountList.remove(myAccount)
                 _rekeyAccountListLiveData.postValue(Event(accountList))
+            }
+        }
+    }
+
+    fun updateAccountAddressDetail(
+        id: Int?,
+        name: String?,
+        accountAddress: String?,
+        passphrase: String?,
+        isSelected: Boolean?
+    ) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val account = Account(name, accountAddress, passphrase, isSelected)
+            account.id = id ?: 0
+            repository.updateAccountAddressDetail(
+                account
+            )
+            withContext(Dispatchers.Main) {
+                fetchAccounts()
             }
         }
     }
@@ -134,24 +151,21 @@ class AccountSettingsViewModel(private val repository: AccountSettingsRepository
     fun rekeyAccount(passphrase: String?, address: String?) {
         _rekeyAccountLiveData.postValue(Event(State.loading()))
         viewModelScope.launch(Dispatchers.IO) {
-            try {
-                val transactionId = SubmitTx.rekeyAccount(
-                    passphrase,
-                    address
-                )
-                withContext(Dispatchers.Main) {
+            val transactionId = SubmitTx.rekeyAccount(
+                passphrase,
+                address
+            )
+            withContext(Dispatchers.Main) {
+                if (transactionId == null)
+                    _rekeyAccountLiveData.postValue(Event(State.error("Error! Please add balance for transaction")))
+                else
                     _rekeyAccountLiveData.postValue(Event(State.success(transactionId)))
-                }
-            } catch (e: ApiException) {
-                _rekeyAccountLiveData.postValue(Event(State.error(e.message ?: "")))
-            } catch (e: JsonProcessingException) {
-                _rekeyAccountLiveData.postValue(Event(State.error(e.message ?: "")))
             }
         }
 
     }
 
-    fun setRekeyAccountAdapterPosition(position : Int){
+    fun setRekeyAccountAdapterPosition(position: Int) {
         rekeyAccountAdapterPosition = position
     }
 

@@ -51,7 +51,7 @@ class CustomAdapterAccount(private val viewModel: AccountSettingsViewModel) :
                     radioButtonSelectAccount.isChecked = it
                 }
                 radioButtonSelectAccount.setOnClickListener {
-                    viewModel.updateAccountDetail(
+                    viewModel.updateAccountAddressDetail(
                         myAccount.id,
                         myAccount.name,
                         myAccount.accountAddress,

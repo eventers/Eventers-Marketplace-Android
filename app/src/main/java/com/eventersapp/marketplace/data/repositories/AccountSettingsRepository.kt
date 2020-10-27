@@ -13,6 +13,10 @@ class AccountSettingsRepository(
     }
 
     suspend fun updateAccountDetail(account: Account): Int {
+        return db.getAccountsDao().updateAccount(account)
+    }
+
+    suspend fun updateAccountAddressDetail(account: Account): Int {
         updateIsSelectedColumn()
         return db.getAccountsDao().updateAccount(account)
     }
