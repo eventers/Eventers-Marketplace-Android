@@ -60,7 +60,14 @@ class AccountSettingsViewModel(private val repository: AccountSettingsRepository
             accountList = repository.fetchAccounts() as ArrayList<Account>
             withContext(Dispatchers.Main) {
                 accountList.removeAt(0)
-                accountList.remove(myAccount)
+                var i = 0
+                while (i < accountList.size) {
+                    if (myAccount.passphrase == accountList[i].passphrase) {
+                        accountList.removeAt(i)
+                        i--
+                    }
+                    i++
+                }
                 _rekeyAccountListLiveData.postValue(Event(accountList))
             }
         }

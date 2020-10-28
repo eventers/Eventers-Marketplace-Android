@@ -48,7 +48,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:padding="16dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/toolbar_constraint_layout">
@@ -96,6 +96,22 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/text_toggle_account"
                         tools:listitem="@layout/list_item_rekey_account" />
+
+                    <TextView
+                        android:id="@+id/text_click_on_plus"
+                        style="@style/TextViewTitleStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="144dp"
+                        android:layout_marginBottom="144dp"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        android:text="There is no rekey account available\nClick on + icon to create new account"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/text_toggle_account" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

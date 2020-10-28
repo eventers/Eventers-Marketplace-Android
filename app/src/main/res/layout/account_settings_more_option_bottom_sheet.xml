@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
 
     <LinearLayout
@@ -55,6 +56,21 @@
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:text="View Passphrase" />
+
+        <TextView
+            android:id="@+id/text_add_algo"
+            style="@style/TextViewSimpleStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:drawableStart="@drawable/ic_round_text_format"
+            android:drawablePadding="16dp"
+            android:foreground="?selectableItemBackground"
+            android:gravity="center_vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="Add Algo"
+            app:drawableTint="@color/gray" />
 
         <TextView
             android:id="@+id/text_edit_account_name"

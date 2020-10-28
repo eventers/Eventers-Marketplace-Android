@@ -107,6 +107,13 @@ class RekeyAccountFragment : Fragment(), KodeinAware, View.OnClickListener {
 
     private fun initializeObserver() {
         viewModel.rekeyAccountListLiveData.observe(viewLifecycleOwner, EventObserver {
+            if (it.isEmpty()) {
+                dataBind.recyclerViewAccount.hide()
+                dataBind.textClickOnPlus.show()
+            } else {
+                dataBind.recyclerViewAccount.show()
+                dataBind.textClickOnPlus.hide()
+            }
             customAdapterRekeyAccount.submitList(it)
         })
         viewModel.rekeyAccountLiveData.observe(viewLifecycleOwner, EventObserver { state ->

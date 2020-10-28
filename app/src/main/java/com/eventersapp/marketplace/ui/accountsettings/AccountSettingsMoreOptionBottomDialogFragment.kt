@@ -12,12 +12,16 @@ import androidx.navigation.fragment.findNavController
 import com.eventersapp.marketplace.R
 import com.eventersapp.marketplace.data.model.Account
 import com.eventersapp.marketplace.databinding.AccountSettingsMoreOptionBottomSheetBinding
+import com.eventersapp.marketplace.util.AppUtils
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class AccountSettingsMoreOptionBottomDialogFragment : BottomSheetDialogFragment(),
     View.OnClickListener {
 
+    companion object {
+        private const val ALGO_BANK_URL = "https://bank.testnet.algorand.network/?account="
+    }
 
     private lateinit var dataBind: AccountSettingsMoreOptionBottomSheetBinding
     private lateinit var myAccount: Account
@@ -61,14 +65,23 @@ class AccountSettingsMoreOptionBottomDialogFragment : BottomSheetDialogFragment(
             }
             R.id.text_rekey_account -> {
                 dismiss()
-                findNavController().navigate(R.id.action_accountSettingsMoreOptionBottomDialogFragment_to_rekeyAccountFragment,
-                    bundleOf("account_detail" to myAccount))
+                findNavController().navigate(
+                    R.id.action_accountSettingsMoreOptionBottomDialogFragment_to_rekeyAccountFragment,
+                    bundleOf("account_detail" to myAccount)
+                )
             }
             R.id.text_view_passphrase -> {
                 dismiss()
                 findNavController().navigate(
                     R.id.action_accountSettingsMoreOptionBottomDialogFragment_to_viewPassphraseBottomDialogFragment,
                     bundleOf("account_detail" to myAccount)
+                )
+            }
+            R.id.text_add_algo -> {
+                dismiss()
+                AppUtils.openCustomChromeTab(
+                    requireContext(),
+                    "$ALGO_BANK_URL${myAccount.accountAddress}"
                 )
             }
             R.id.text_edit_account_name -> {
@@ -92,6 +105,7 @@ class AccountSettingsMoreOptionBottomDialogFragment : BottomSheetDialogFragment(
         dataBind.textCloseBottomSheet.setOnClickListener(this)
         dataBind.textRekeyAccount.setOnClickListener(this)
         dataBind.textViewPassphrase.setOnClickListener(this)
+        dataBind.textAddAlgo.setOnClickListener(this)
         dataBind.textEditAccountName.setOnClickListener(this)
         dataBind.textRemoveAccount.setOnClickListener(this)
     }

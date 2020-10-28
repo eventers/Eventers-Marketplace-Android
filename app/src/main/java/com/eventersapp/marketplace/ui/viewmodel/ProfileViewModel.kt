@@ -77,6 +77,7 @@ class ProfileViewModel(private val repository: ProfileRepository) : ViewModel() 
                 FirebaseAuth.getInstance().signOut()
                 LoginManager.getInstance().logOut()
                 withContext(Dispatchers.Main) {
+                    isProfileApiCalled = false
                     deleteAllRecordsFromDb()
                 }
             } catch (e: ApiException) {
