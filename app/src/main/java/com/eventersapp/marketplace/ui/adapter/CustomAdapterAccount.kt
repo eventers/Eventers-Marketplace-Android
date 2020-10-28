@@ -42,7 +42,7 @@ class CustomAdapterAccount(private val viewModel: AccountSettingsViewModel) :
         @SuppressLint("SetTextI18n")
         fun bindItems(myAccount: Account) {
             binding.apply {
-                if(adapterPosition == 0)
+                if (adapterPosition == 0)
                     imageMoreActions.hide()
                 else
                     imageMoreActions.show()
@@ -60,8 +60,10 @@ class CustomAdapterAccount(private val viewModel: AccountSettingsViewModel) :
                     )
                 }
                 imageMoreActions.setOnClickListener {
-                    Navigation.findNavController(it).navigate(R.id.action_accountSettingsFragment_to_accountSettingsMoreOptionBottomDialogFragment,
-                    bundleOf("account_detail" to myAccount))
+                    Navigation.findNavController(it).navigate(
+                        R.id.action_accountSettingsFragment_to_accountSettingsMoreOptionBottomDialogFragment,
+                        bundleOf("account_detail" to myAccount)
+                    )
                 }
             }
         }

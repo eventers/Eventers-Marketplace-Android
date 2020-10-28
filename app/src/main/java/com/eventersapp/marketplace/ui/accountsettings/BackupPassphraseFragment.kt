@@ -18,7 +18,6 @@ import com.eventersapp.marketplace.R
 import com.eventersapp.marketplace.databinding.FragmentBackupPassphraseBinding
 import com.eventersapp.marketplace.ui.adapter.CustomAdapterBackupPassphrase
 import com.eventersapp.marketplace.ui.viewmodel.BackupPassphraseViewModel
-import com.eventersapp.marketplace.util.AppConstants
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.closestKodein
 
@@ -109,8 +108,10 @@ class BackupPassphraseFragment : Fragment(), KodeinAware, View.OnClickListener {
     }
 
     private fun showPassphraseQRCode() {
-        findNavController().navigate(R.id.action_backupPassphraseFragment_to_showPassphraseQRCodeBottomDialogFragment,
-        bundleOf("passphrase" to viewModel.getPassphrase()))
+        findNavController().navigate(
+            R.id.action_backupPassphraseFragment_to_showPassphraseQRCodeBottomDialogFragment,
+            bundleOf("passphrase" to viewModel.getPassphrase())
+        )
 
     }
 }

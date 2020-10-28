@@ -7,10 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.Nullable
-import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import com.eventersapp.marketplace.R
@@ -98,11 +95,11 @@ class ViewPassphraseBottomDialogFragment : BottomSheetDialogFragment(),
         startActivity(Intent.createChooser(sharingIntent, "Share via"))
     }
 
-   /* private fun showPassphraseQRCode() {
-        findNavController().navigate(R.id.action_viewPassphraseBottomDialogFragment_to_showPassphraseQRCodeBottomDialogFragment,
-            bundleOf("passphrase" to myAccount.passphrase)
-        )
+    /* private fun showPassphraseQRCode() {
+         findNavController().navigate(R.id.action_viewPassphraseBottomDialogFragment_to_showPassphraseQRCodeBottomDialogFragment,
+             bundleOf("passphrase" to myAccount.passphrase)
+         )
 
-    }*/
+     }*/
 
 }

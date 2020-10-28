@@ -9,7 +9,6 @@ import androidx.annotation.Nullable
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.navGraphViewModels
 import com.eventersapp.marketplace.R
 import com.eventersapp.marketplace.data.model.Account
 import com.eventersapp.marketplace.databinding.RemoveAccountBottomSheetBinding
