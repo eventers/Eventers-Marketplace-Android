@@ -56,12 +56,12 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp"
+                    android:padding="8dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/toolbar_constraint_layout">
 
                     <TextView
-                        android:id="@+id/text_create_event"
+                        android:id="@+id/text_label_resell_or_send_event"
                         style="@style/TextViewTitleStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -71,114 +71,139 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-
-                    <TextView
-                        android:id="@+id/text_event_title"
-                        style="@style/TextViewFormStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Event Title"
-                        app:layout_constraintStart_toStartOf="@+id/text_create_event"
-                        app:layout_constraintTop_toBottomOf="@+id/text_create_event" />
-
-                    <EditText
-                        android:id="@+id/input_event_title"
-                        style="@style/EditTextFormStyle"
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="4dp"
-                        android:clickable="false"
-                        android:focusable="false"
-                        android:hint="Event Title"
-                        android:text="@={viewmodel.eventTitle}"
-                        android:textColorHint="#bdbdbd"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_event_title" />
-
-                    <TextView
-                        android:id="@+id/text_event_description"
-                        style="@style/TextViewFormStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="Event Description"
-                        app:layout_constraintStart_toStartOf="@+id/text_create_event"
-                        app:layout_constraintTop_toBottomOf="@+id/input_event_title" />
+                        app:cardCornerRadius="4dp"
+                        app:cardElevation="4dp"
+                        app:cardUseCompatPadding="true"
+                        app:contentPadding="8dp"
+                        app:layout_constraintStart_toStartOf="@+id/text_label_resell_or_send_event"
+                        app:layout_constraintTop_toBottomOf="@+id/text_label_resell_or_send_event">
 
-                    <EditText
-                        android:id="@+id/input_event_description"
-                        style="@style/EditTextFormStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="4dp"
-                        android:clickable="false"
-                        android:focusable="false"
-                        android:hint="Event Description"
-                        android:inputType="textMultiLine"
-                        android:maxLines="5"
-                        android:text="@={viewmodel.eventDescription}"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_event_description" />
-
-                    <TextView
-                        android:id="@+id/text_ticket_price"
-                        style="@style/TextViewFormStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="Ticket Price"
-                        app:layout_constraintStart_toStartOf="@+id/text_create_event"
-                        app:layout_constraintTop_toBottomOf="@+id/input_event_description" />
-
-                    <EditText
-                        android:id="@+id/input_ticket_price"
-                        style="@style/EditTextFormStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="4dp"
-                        android:clickable="false"
-                        android:focusable="false"
-                        android:hint="Ticket Price"
-                        android:inputType="numberSigned"
-                        android:text="@={viewmodel.ticketPrice}"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_ticket_price" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
 
-                    <Button
-                        android:id="@+id/button_resell"
-                        style="@style/ButtonActionStyle"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="48dp"
-                        android:text="Resell"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/input_ticket_price"
-                        app:layout_constraintWidth_percent="0.8" />
+                            <TextView
+                                android:id="@+id/text_event_title"
+                                style="@style/TextViewFormStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="8dp"
+                                android:text="Event Title"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <EditText
+                                android:id="@+id/input_event_title"
+                                style="@style/EditTextFormStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:clickable="false"
+                                android:drawableEnd="@drawable/ic_round_assignment"
+                                android:focusable="false"
+                                android:hint="Event Title"
+                                android:text="@={viewmodel.eventTitle}"
+                                android:textColorHint="#bdbdbd"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/text_event_title" />
+
+                            <TextView
+                                android:id="@+id/text_event_description"
+                                style="@style/TextViewFormStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:text="Event Description"
+                                app:layout_constraintStart_toStartOf="@+id/text_event_title"
+                                app:layout_constraintTop_toBottomOf="@+id/input_event_title" />
+
+                            <EditText
+                                android:id="@+id/input_event_description"
+                                style="@style/EditTextFormStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:clickable="false"
+                                android:drawableEnd="@drawable/ic_round_article"
+                                android:focusable="false"
+                                android:hint="Event Description"
+                                android:inputType="textMultiLine"
+                                android:maxLines="5"
+                                android:text="@={viewmodel.eventDescription}"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/text_event_description" />
+
+                            <TextView
+                                android:id="@+id/text_ticket_price"
+                                style="@style/TextViewFormStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:text="Ticket Price"
+                                app:layout_constraintStart_toStartOf="@+id/text_event_title"
+                                app:layout_constraintTop_toBottomOf="@+id/input_event_description" />
+
+                            <EditText
+                                android:id="@+id/input_ticket_price"
+                                style="@style/EditTextFormStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:clickable="false"
+                                android:drawableEnd="@drawable/ic_round_attach_money"
+                                android:focusable="false"
+                                android:hint="Ticket Price"
+                                android:inputType="numberSigned"
+                                android:text="@={viewmodel.ticketPrice}"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/text_ticket_price" />
 
 
-                    <Button
-                        android:id="@+id/button_send"
-                        style="@style/ButtonActionCancelStyle"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="Send"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/button_resell"
-                        app:layout_constraintWidth_percent="0.8" />
+                            <Button
+                                android:id="@+id/button_resell"
+                                style="@style/ButtonActionStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="24dp"
+                                android:text="Resell"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/input_ticket_price"
+                                app:layout_constraintWidth_percent="0.8" />
+
+
+                            <Button
+                                android:id="@+id/button_send"
+                                style="@style/ButtonActionCancelStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="24dp"
+                                android:text="Send"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/button_resell"
+                                app:layout_constraintWidth_percent="0.8" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
