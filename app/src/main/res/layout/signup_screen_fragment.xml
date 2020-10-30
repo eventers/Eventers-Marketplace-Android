@@ -54,11 +54,9 @@
                 <Button
                     android:id="@+id/button_facebook_sign_in"
                     style="@style/ButtonActionStyle"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="32dp"
                     android:layout_marginTop="32dp"
-                    android:layout_marginRight="32dp"
                     android:background="@drawable/purple_rounded_bg"
                     android:drawableStart="@drawable/ic_facebook_logo"
                     android:paddingStart="16dp"
@@ -66,24 +64,24 @@
                     android:text="Sign in with Facebook"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/image_eventers_logo" />
+                    app:layout_constraintTop_toBottomOf="@+id/image_eventers_logo"
+                    app:layout_constraintWidth_percent="0.8" />
 
 
                 <Button
                     android:id="@+id/button_google_sign_in"
                     style="@style/ButtonActionCancelStyle"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="32dp"
                     android:layout_marginTop="16dp"
-                    android:layout_marginRight="32dp"
                     android:drawableStart="@drawable/ic_google_logo"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
                     android:text="Sign in with Google"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button_facebook_sign_in" />
+                    app:layout_constraintTop_toBottomOf="@+id/button_facebook_sign_in"
+                    app:layout_constraintWidth_percent="0.8" />
 
                 <TextView
                     android:id="@+id/text_or"
@@ -100,18 +98,17 @@
                 <Button
                     android:id="@+id/button_phone_number"
                     style="@style/ButtonActionCancelStyle"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="32dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginRight="32dp"
                     android:drawableStart="@drawable/ic_call"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
                     android:text="Connect with phone number"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_or" />
+                    app:layout_constraintTop_toBottomOf="@+id/text_or"
+                    app:layout_constraintWidth_percent="0.8" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,74 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="?attr/selectableItemBackground"
-    android:clickable="true"
-    app:cardCornerRadius="4dp"
-    app:cardElevation="4dp"
-    app:cardUseCompatPadding="true"
-    app:contentPadding="8dp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="100">
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <TextView
+                    android:id="@+id/text_event_title"
+                    style="@style/TextViewTitleStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="80"
+                    tools:text="Concert - Justin Bieber" />
+
+                <TextView
+                    android:id="@+id/text_ticket_price"
+                    style="@style/TextViewHeaderStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="20"
+                    android:gravity="end"
+                    android:textColor="@color/colorAccent"
+                    tools:text="$ 180" />
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/text_event_title"
-                style="@style/TextViewTitleStyle"
-                android:layout_width="0dp"
+                android:id="@+id/text_date_time"
+                style="@style/TextViewFormStyle"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="80"
-                tools:text="Concert - Justin Bieber" />
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                tools:text="19-Jun-2020, 03:25 PM" />
+
+
+            <ImageView
+                android:id="@+id/image_event_image"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/eventers_logo" />
 
             <TextView
-                android:id="@+id/text_ticket_price"
-                style="@style/TextViewHeaderStyle"
-                android:layout_width="0dp"
+                android:id="@+id/text_event_description"
+                style="@style/TextViewSimpleStyle"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="20"
-                android:gravity="end"
-                android:textColor="@color/colorAccent"
-                tools:text="$ 180" />
+                android:layout_marginTop="8dp"
+                android:textColor="@color/gray"
+                tools:text="Justin Bieber on Tour" />
+
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/text_date_time"
-            style="@style/TextViewFormStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="8dp"
-            tools:text="19-Jun-2020, 03:25 PM" />
-
-
-        <ImageView
-            android:id="@+id/image_event_image"
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:scaleType="centerCrop"
-            tools:src="@drawable/eventers_logo" />
-
-        <TextView
-            android:id="@+id/text_event_description"
-            style="@style/TextViewSimpleStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/gray"
-            tools:text="Justin Bieber on Tour" />
-
-
-    </LinearLayout>
-
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+</layout>
