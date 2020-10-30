@@ -6,7 +6,7 @@
 
         <variable
             name="viewmodel"
-            type="com.eventersapp.consumer.ui.viewmodel.PhoneNumberViewModel" />
+            type="com.eventersapp.marketplace.ui.viewmodel.PhoneNumberViewModel" />
 
     </data>
 
@@ -112,16 +112,15 @@
                 <Button
                     android:id="@+id/button_submit"
                     style="@style/ButtonActionStyle"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="32dp"
                     android:layout_marginTop="48dp"
-                    android:layout_marginRight="32dp"
                     android:onClick="@{viewmodel::onSubmitButtonClick}"
                     android:text="Submit"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/check_box_privacy_policy" />
+                    app:layout_constraintTop_toBottomOf="@+id/check_box_privacy_policy"
+                    app:layout_constraintWidth_percent="0.8" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

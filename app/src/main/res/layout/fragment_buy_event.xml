@@ -7,7 +7,7 @@
 
         <variable
             name="viewmodel"
-            type="com.eventersapp.consumer.ui.viewmodel.BuyEventViewModel" />
+            type="com.eventersapp.marketplace.ui.viewmodel.BuyEventViewModel" />
 
     </data>
 

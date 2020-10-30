@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
             name="viewmodel"
-            type="com.eventersapp.consumer.ui.viewmodel.ProfileViewModel" />
+            type="com.eventersapp.marketplace.ui.viewmodel.ProfileViewModel" />
     </data>
 
     <ScrollView xmlns:tools="http://schemas.android.com/tools"
@@ -29,12 +30,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:drawableStart="@drawable/ic_outline_edit"
                 android:drawablePadding="8dp"
                 android:fontFamily="@font/calibri"
                 android:text="Edit"
                 android:textColor="#808080"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:drawableStartCompat="@drawable/ic_outline_edit" />
 
             <ImageView
                 android:id="@+id/image_profile_user"
@@ -115,6 +116,18 @@
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <TextView
+                android:id="@+id/text_account_settings"
+                style="@style/TextViewHeaderStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="Account Settings"
+                android:textColor="#808080"
+                app:drawableEndCompat="@drawable/ic_baseline_arrow_right" />
+
 
             <TextView
                 android:id="@+id/text_contact"
@@ -122,11 +135,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
-                android:drawableRight="@drawable/ic_baseline_arrow_right"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
                 android:text="Help / Contact us"
-                android:textColor="#808080" />
+                android:textColor="#808080"
+                app:drawableEndCompat="@drawable/ic_baseline_arrow_right" />
 
             <TextView
                 android:id="@+id/text_logout"
@@ -134,12 +147,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:drawableRight="@drawable/ic_baseline_arrow_right"
                 android:onClick="@{viewmodel::onLogoutButtonClick}"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
                 android:text="Logout"
-                android:textColor="#f98a75" />
+                android:textColor="#f98a75"
+                app:drawableRightCompat="@drawable/ic_baseline_arrow_right" />
         </LinearLayout>
     </ScrollView>
 

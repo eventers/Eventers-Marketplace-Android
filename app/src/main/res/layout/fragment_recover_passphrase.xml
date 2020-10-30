@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.eventersapp.marketplace.ui.viewmodel.RecoverPassphraseViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/toolbar_constraint_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:id="@+id/app_bar_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:theme="@style/AppTheme.AppBarOverlay"
+                    app:elevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?android:attr/actionBarSize"
+                        app:popupTheme="@style/AppTheme.PopupOverlay"
+                        app:theme="@style/AppTheme.Toolbar" />
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar_constraint_layout">
+
+                <TextView
+                    android:id="@+id/text_recover_passphrase"
+                    style="@style/TextViewTitleStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Recover from Passphrase"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_label_recover_account_from_passphrase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/calibri"
+                    android:text="Recover an account with a 25-word passphrase"
+                    app:layout_constraintStart_toStartOf="@+id/text_recover_passphrase"
+                    app:layout_constraintTop_toBottomOf="@+id/text_recover_passphrase" />
+
+                <TextView
+                    android:id="@+id/text_account_name"
+                    style="@style/TextViewFormStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:text="Name"
+                    app:layout_constraintStart_toStartOf="@+id/text_recover_passphrase"
+                    app:layout_constraintTop_toBottomOf="@+id/text_label_recover_account_from_passphrase" />
+
+                <EditText
+                    android:id="@+id/input_account_name"
+                    style="@style/EditTextFormStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:hint="Please name your account"
+                    android:text="@={viewmodel.name}"
+                    android:textColorHint="#bdbdbd"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_account_name" />
+
+                <TextView
+                    android:id="@+id/text_passphrase"
+                    style="@style/TextViewFormStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Passphrase"
+                    app:layout_constraintStart_toStartOf="@+id/text_recover_passphrase"
+                    app:layout_constraintTop_toBottomOf="@+id/input_account_name" />
+
+                <EditText
+                    android:id="@+id/input_passphrase"
+                    style="@style/EditTextFormStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:gravity="top"
+                    android:hint="Enter Passphrase"
+                    android:inputType="textMultiLine"
+                    android:lines="5"
+                    android:text="@={viewmodel.passphrase}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_passphrase" />
+
+
+                <Button
+                    android:id="@+id/button_verify"
+                    style="@style/ButtonActionStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="48dp"
+                    android:onClick="@{viewmodel::onVerifyButtonClick}"
+                    android:text="Verify"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/input_passphrase"
+                    app:layout_constraintWidth_percent="0.8" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

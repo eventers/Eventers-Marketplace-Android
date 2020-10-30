@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/signupScreenFragment"
-        android:name="com.eventersapp.consumer.ui.signup.SignupScreenFragment"
+        android:name="com.eventersapp.marketplace.ui.signup.SignupScreenFragment"
         android:label="SignupScreenFragment"
         tools:layout="@layout/signup_screen_fragment">
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/phoneNumberFragment"
-        android:name="com.eventersapp.consumer.ui.signup.PhoneNumberFragment"
+        android:name="com.eventersapp.marketplace.ui.signup.PhoneNumberFragment"
         android:label="PhoneNumberFragment"
         tools:layout="@layout/phone_number_fragment">
         <action
@@ -38,7 +38,7 @@
     </fragment>
     <fragment
         android:id="@+id/phoneOTPFragment"
-        android:name="com.eventersapp.consumer.ui.signup.PhoneOTPFragment"
+        android:name="com.eventersapp.marketplace.ui.signup.PhoneOTPFragment"
         android:label="PhoneOTPFragment"
         tools:layout="@layout/phone_otp_fragment">
         <argument
@@ -60,7 +60,7 @@
     </fragment>
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="com.eventersapp.consumer.ui.dashboard.DashboardFragment"
+        android:name="com.eventersapp.marketplace.ui.dashboard.DashboardFragment"
         android:label="DashboardFragment"
         tools:layout="@layout/dashboard_fragment">
         <action
@@ -93,10 +93,18 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_accountSettingsFragment"
+            app:destination="@id/accountSettingsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/dashboardFragment" />
     </fragment>
     <fragment
         android:id="@+id/createEventFragment"
-        android:name="com.eventersapp.consumer.ui.blockchain.CreateEventFragment"
+        android:name="com.eventersapp.marketplace.ui.blockchain.CreateEventFragment"
         android:label="CreateEventFragment"
         tools:layout="@layout/fragment_create_event">
         <action
@@ -111,13 +119,13 @@
     </fragment>
     <fragment
         android:id="@+id/resellOrSendEventFragment"
-        android:name="com.eventersapp.consumer.ui.blockchain.ResellOrSendEventFragment"
+        android:name="com.eventersapp.marketplace.ui.blockchain.ResellOrSendEventFragment"
         android:label="ResellOrSendEventFragment"
         tools:layout="@layout/fragment_resell_or_send_event">
 
         <argument
             android:name="my_event_data"
-            app:argType="com.eventersapp.consumer.data.model.MyEventListResponse" />
+            app:argType="com.eventersapp.marketplace.data.model.MyEventListResponse" />
         <action
             android:id="@+id/action_resellOrSendEventFragment_to_dashboardFragment"
             app:destination="@id/dashboardFragment"
@@ -131,13 +139,13 @@
     </fragment>
     <fragment
         android:id="@+id/buyEventFragment"
-        android:name="com.eventersapp.consumer.ui.blockchain.BuyEventFragment"
+        android:name="com.eventersapp.marketplace.ui.blockchain.BuyEventFragment"
         android:label="BuyEventFragment"
         tools:layout="@layout/fragment_buy_event">
 
         <argument
             android:name="all_event_data"
-            app:argType="com.eventersapp.consumer.data.model.AllEventListResponse" />
+            app:argType="com.eventersapp.marketplace.data.model.AllEventListResponse" />
         <action
             android:id="@+id/action_buyEventFragment_to_dashboardFragment"
             app:destination="@id/dashboardFragment"
@@ -146,7 +154,101 @@
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"
             app:popUpTo="@id/dashboardFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/accountSettingsFragment"
+        android:name="com.eventersapp.marketplace.ui.accountsettings.AccountSettingsFragment"
+        android:label="AccountSettingsFragment"
+        tools:layout="@layout/fragment_account_settings">
+        <action
+            android:id="@+id/action_accountSettingsFragment_to_addNewAccountFragment"
+            app:destination="@id/addNewAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewAccountFragment"
+        android:name="com.eventersapp.marketplace.ui.accountsettings.AddNewAccountFragment"
+        android:label="AddNewAccountFragment"
+        tools:layout="@layout/fragment_add_new_account">
+        <action
+            android:id="@+id/action_addNewAccountFragment_to_recoverPassphraseFragment"
+            app:destination="@id/recoverPassphraseFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_addNewAccountFragment_to_backupPassphraseFragment"
+            app:destination="@id/backupPassphraseFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/recoverPassphraseFragment"
+        android:name="com.eventersapp.marketplace.ui.accountsettings.RecoverPassphraseFragment"
+        android:label="RecoverPassphraseFragment"
+        tools:layout="@layout/fragment_recover_passphrase">
+
+    </fragment>
+    <fragment
+        android:id="@+id/backupPassphraseFragment"
+        android:name="com.eventersapp.marketplace.ui.accountsettings.BackupPassphraseFragment"
+        android:label="BackupPassphraseFragment"
+        tools:layout="@layout/fragment_backup_passphrase">
+        <action
+            android:id="@+id/action_backupPassphraseFragment_to_verifyRecoveryPhraseFragment"
+            app:destination="@id/verifyRecoveryPhraseFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/verifyRecoveryPhraseFragment"
+        android:name="com.eventersapp.marketplace.ui.accountsettings.VerifyRecoveryPhraseFragment"
+        android:label="VerifyRecoveryPhraseFragment"
+        tools:layout="@layout/fragment_verify_recovery_phrase">
+        <action
+            android:id="@+id/action_verifyRecoveryPhraseFragment_to_passphraseVerifiedBottomDialogFragment"
+            app:destination="@id/passphraseVerifiedBottomDialogFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/passphraseVerifiedBottomDialogFragment"
+        android:name="com.eventersapp.marketplace.ui.accountsettings.PassphraseVerifiedBottomDialogFragment"
+        android:label="PassphraseVerifiedBottomDialogFragment"
+        tools:layout="@layout/passphrase_verified_bottom_sheet">
+        <action
+            android:id="@+id/action_passphraseVerifiedBottomDialogFragment_to_accountDetailsFragment"
+            app:destination="@id/accountDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </dialog>
+    <fragment
+        android:id="@+id/accountDetailsFragment"
+        android:name="com.eventersapp.marketplace.ui.accountsettings.AccountDetailsFragment"
+        android:label="AccountDetailsFragment"
+        tools:layout="@layout/fragment_account_details">
+
+        <argument
+            android:name="account_name"
+            app:argType="string" />
+        <argument
+            android:name="account_passphrase"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_accountDetailsFragment_to_accountSettingsFragment"
+            app:destination="@id/accountSettingsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/accountSettingsFragment"
+            app:popUpToInclusive="true" />
 
     </fragment>
 </navigation>
