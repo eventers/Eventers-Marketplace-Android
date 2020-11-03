@@ -28,7 +28,7 @@ interface BlogApiInterface {
             networkConnectionInterceptor: NetworkConnectionInterceptor
         ): BlogApiInterface {
 
-            val WS_SERVER_URL = "https://eventers.ghost.io/"
+            val WS_SERVER_URL = "<BLOG-URL>"//Replace with blog url
             val okkHttpclient = OkHttpClient.Builder()
                 .addInterceptor(networkConnectionInterceptor)
                 .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))

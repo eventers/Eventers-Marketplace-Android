@@ -82,7 +82,7 @@ class BlogFragment : Fragment(), KodeinAware {
                         AppUtils.openCustomChromeTab(
                             requireContext(),
                             customAdapterBlog.getListData()[position]?.url
-                                ?: "https://eventers.ghost.io/"
+                                ?: ""
                         )
                     }
 

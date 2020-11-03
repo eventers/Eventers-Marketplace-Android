@@ -11,8 +11,8 @@ object AppConstants {
 
     //<editor-fold desc="Commonly used constants">
 
-    const val S3URL = "https://s3.us-east-2.amazonaws.com/dev.eventersapp.com/"
-    const val BLOG_KEY = "9c8fd51f798f46eafcfcefef39"
+    const val S3URL = "<S3-URL>"//Replace with S3 url
+    const val BLOG_KEY = "<key>"//Replace with ghost blog key
     const val PHONE = "phone"
     const val GOOGLE = "google"
     const val FACEBOOK = "facebook"
