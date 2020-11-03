@@ -20,7 +20,7 @@ class AccountSettingsMoreOptionBottomDialogFragment : BottomSheetDialogFragment(
     View.OnClickListener {
 
     companion object {
-        private const val ALGO_BANK_URL = "https://bank.testnet.algorand.network/?account="
+        private const val ALGO_BANK_URL = "<ALGO_BANK-URL>" //Replace with algo bank url
     }
 
     private lateinit var dataBind: AccountSettingsMoreOptionBottomSheetBinding

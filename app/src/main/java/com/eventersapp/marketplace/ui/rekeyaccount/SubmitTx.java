@@ -26,8 +26,8 @@ import java.security.Security;
 public class SubmitTx {
 
     public static TransactionID rekeyAccount(String mnemonics, String rekeyToAddress) throws GeneralSecurityException {
-        final String ALGOD_API_ADDR = "https://testnet-algorand.api.purestake.io/ps1";
-        final String ALGOD_API_TOKEN = "ZdwbOE8iCG9Bv5MWo76cS9W54lC6evWQ6QKJWDJG";
+        final String ALGOD_API_ADDR = "<ALGO_API-ADDR>"; //Replace with your algo api address
+        final String ALGOD_API_TOKEN = "<ALGO_API-TOKEN>"; //Replace with your algo api token
 
         final String SRC_ACCOUNT = mnemonics;
 
