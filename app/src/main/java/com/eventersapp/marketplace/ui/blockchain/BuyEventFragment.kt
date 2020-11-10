@@ -86,7 +86,8 @@ class BuyEventFragment : Fragment(), KodeinAware {
                 AppConstants.DISPLAY_DATE_FORMAT,
                 AppConstants.API_DATE_FORMAT
             )
-            dataBind.imageEventImage.setImageBitmap(AppUtils.base64StringToImage(it.eventImage))
+            if (it.eventImage != null && it.eventImage.isNotEmpty())
+                AppUtils.setGlideImage(dataBind.imageEventImage, it.eventImage)
         }
         if (allEvent.eventTicket == null)
             dataBind.textBuyResellTicket.visibility = View.GONE
@@ -181,7 +182,4 @@ class BuyEventFragment : Fragment(), KodeinAware {
         alertDialog.show()
     }
 
-
 }
-
-

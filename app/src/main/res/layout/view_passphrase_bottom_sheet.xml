@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/text_label_view_passphrase"
+            style="@style/TextViewTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="View Passphrase"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_close_bottom_sheet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/blue_oval_bg"
+            android:fontFamily="@font/calibri"
+            android:gravity="center"
+            android:paddingStart="12dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="8dp"
+            android:text="X"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/text_label_view_passphrase" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_to_mnemonic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_label_view_passphrase"
+            tools:listitem="@layout/list_item_passphrase" />
+
+        <TextView
+            android:id="@+id/text_show_qr"
+            style="@style/TextViewSimpleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:drawablePadding="8dp"
+            android:foreground="?selectableItemBackgroundBorderless"
+            android:text="Show QR"
+            android:textColor="@color/colorPrimary"
+            android:visibility="gone"
+            app:drawableStartCompat="@drawable/ic_scan"
+            app:drawableTint="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_to_mnemonic" />
+
+        <TextView
+            android:id="@+id/text_share_passphrase"
+            style="@style/TextViewSimpleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:drawablePadding="8dp"
+            android:foreground="?selectableItemBackgroundBorderless"
+            android:text="Share"
+            android:textColor="@color/colorPrimary"
+            app:drawableStartCompat="@drawable/ic_share"
+            app:drawableTint="@color/colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/text_show_qr" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

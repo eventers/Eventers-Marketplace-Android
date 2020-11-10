@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.budiyev.android.codescanner.*
 import com.eventersapp.marketplace.R
 import com.eventersapp.marketplace.databinding.FragmentScanBinding
+import com.eventersapp.marketplace.util.AppConstants
 import com.eventersapp.marketplace.util.showToast
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -20,11 +21,15 @@ import java.util.*
 
 class ScanFragment : Fragment() {
 
+    companion object {
+        private const val ALL_PERMISSIONS_RESULT = 101
+    }
+
     private lateinit var dataBind: FragmentScanBinding
     private lateinit var codeScanner: CodeScanner
     private var permissionsToRequest: ArrayList<String>? = null
     private val permissions = ArrayList<String>()
-    private val ALL_PERMISSIONS_RESULT = 101
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -79,7 +84,8 @@ class ScanFragment : Fragment() {
 
         codeScanner.decodeCallback = DecodeCallback {
             CoroutineScope(Dispatchers.Main).launch {
-                requireContext().showToast("Scan result: ${it.text}")
+                //requireContext().showToast("Scan result: ${it.text}")
+                showScanResult(it.text)
             }
         }
 
@@ -126,5 +132,16 @@ class ScanFragment : Fragment() {
         return Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1
     }
 
+    private fun showScanResult(text: String) {
+        val showScanResultOfQRCodeBottomDialogFragment: ShowScanResultOfQRCodeBottomDialogFragment =
+            ShowScanResultOfQRCodeBottomDialogFragment.newInstance()
+        val arg = Bundle()
+        arg.putString("scan_result", text)
+        showScanResultOfQRCodeBottomDialogFragment.arguments = arg
+        showScanResultOfQRCodeBottomDialogFragment.show(
+            childFragmentManager,
+            AppConstants.TAG_SHOW_SCAN_RESULT_OF_QR_CODE_BOTTOM_SHEET_FRAGMENT
+        )
+    }
 
 }

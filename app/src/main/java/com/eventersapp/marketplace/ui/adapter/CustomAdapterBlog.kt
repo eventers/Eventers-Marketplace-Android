@@ -62,8 +62,6 @@ class CustomAdapterBlog : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     fun setData(newGlobalContent: ArrayList<BlogListResponse.Post?>?) {
         if (newGlobalContent != null) {
-            if (blogList.isNotEmpty())
-                blogList.removeAt(blogList.size - 1)
             blogList.clear()
             blogList.addAll(newGlobalContent)
         } else {

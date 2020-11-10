@@ -64,8 +64,6 @@ class CustomAdapterBuyEvent(private val fragment: BuyEventFragment) :
 
     fun setData(newBuyEvent: ArrayList<AllEventListResponse.Data.EventTicket>) {
         if (newBuyEvent != null) {
-            if (buyEventList.isNotEmpty())
-                buyEventList.removeAt(buyEventList.size - 1)
             buyEventList.clear()
             buyEventList.addAll(newBuyEvent)
         } else {

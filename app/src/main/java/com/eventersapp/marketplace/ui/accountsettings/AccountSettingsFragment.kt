@@ -32,7 +32,6 @@ class AccountSettingsFragment : Fragment(), KodeinAware, View.OnClickListener {
         ViewModelProvider(this, factory).get(AccountSettingsViewModel::class.java)
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         customAdapterAccount = CustomAdapterAccount(viewModel)
@@ -58,6 +57,11 @@ class AccountSettingsFragment : Fragment(), KodeinAware, View.OnClickListener {
         initializeObserver()
     }
 
+    override fun onStart() {
+        super.onStart()
+        fetchAccounts()
+    }
+
     override fun onClick(view: View?) {
         when (view?.id) {
             R.id.fab_add_new_account -> {
@@ -79,13 +83,12 @@ class AccountSettingsFragment : Fragment(), KodeinAware, View.OnClickListener {
             itemAnimator = DefaultItemAnimator()
             adapter = customAdapterAccount
         }
-        fetchAccounts()
         dataBind.fabAddNewAccount.setOnClickListener(this)
     }
 
     private fun initializeObserver() {
         viewModel.accountListLiveData.observe(viewLifecycleOwner, Observer {
-            customAdapterAccount.setData(it)
+            customAdapterAccount.submitList(it)
         })
     }
 

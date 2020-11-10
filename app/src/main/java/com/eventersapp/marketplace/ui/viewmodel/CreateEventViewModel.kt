@@ -155,6 +155,7 @@ class CreateEventViewModel(private val repository: CreateEventRepository) : View
 
     fun setFilePath(path: String) {
         filePath = path
+        ticketImage = filePath
     }
 
     fun getFilePath() = filePath
