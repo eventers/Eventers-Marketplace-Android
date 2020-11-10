@@ -10,6 +10,7 @@
     <color name="light_gray">#999999</color>
     <color name="red">#F44336</color>
     <color name="green">#4CAF50</color>
+    <color name="transparent_red">#33F44336</color>
 
     <color name="ucrop_color_toolbar">#2d81f7</color>
     <color name="ucrop_color_statusbar">#2d81f7</color>

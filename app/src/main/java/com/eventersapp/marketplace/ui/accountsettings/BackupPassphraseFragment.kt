@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -17,7 +18,6 @@ import com.eventersapp.marketplace.R
 import com.eventersapp.marketplace.databinding.FragmentBackupPassphraseBinding
 import com.eventersapp.marketplace.ui.adapter.CustomAdapterBackupPassphrase
 import com.eventersapp.marketplace.ui.viewmodel.BackupPassphraseViewModel
-import com.eventersapp.marketplace.util.AppConstants
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.closestKodein
 
@@ -108,14 +108,10 @@ class BackupPassphraseFragment : Fragment(), KodeinAware, View.OnClickListener {
     }
 
     private fun showPassphraseQRCode() {
-        val showPassphraseQRCodeBottomDialogFragment: ShowPassphraseQRCodeBottomDialogFragment =
-            ShowPassphraseQRCodeBottomDialogFragment.newInstance()
-        val args = Bundle()
-        args.putString("passphrase", viewModel.getPassphrase())
-        showPassphraseQRCodeBottomDialogFragment.arguments = args
-        showPassphraseQRCodeBottomDialogFragment.show(
-            requireActivity().supportFragmentManager,
-            AppConstants.TAG_SHOW_QR_CODE_BOTTOM_SHEET_FRAGMENT
+        findNavController().navigate(
+            R.id.action_backupPassphraseFragment_to_showPassphraseQRCodeBottomDialogFragment,
+            bundleOf("passphrase" to viewModel.getPassphrase())
         )
+
     }
 }

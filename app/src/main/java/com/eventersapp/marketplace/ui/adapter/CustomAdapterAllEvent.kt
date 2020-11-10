@@ -65,8 +65,6 @@ class CustomAdapterAllEvent : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     fun setData(newAllEvent: ArrayList<AllEventListResponse.Data?>?) {
         if (newAllEvent != null) {
-            if (allEventList.isNotEmpty())
-                allEventList.removeAt(allEventList.size - 1)
             allEventList.clear()
             allEventList.addAll(newAllEvent)
         } else {
@@ -102,6 +100,5 @@ class CustomAdapterAllEvent : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
 
     }
-
 
 }

@@ -27,6 +27,7 @@ package com.eventersapp.marketplace.data.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.eventersapp.marketplace.data.model.Account.Companion.TABLE_NAME
+import java.io.Serializable
 
 /**
  * Data class for Database entity and Serialization.
@@ -37,7 +38,7 @@ data class Account(
     var accountAddress: String? = null,
     var passphrase: String? = null,
     var isSelected: Boolean? = null
-) {
+) : Serializable {
     companion object {
         const val TABLE_NAME = "accounts"
     }

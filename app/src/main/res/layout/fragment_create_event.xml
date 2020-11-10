@@ -57,7 +57,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp"
+                    android:padding="8dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/toolbar_constraint_layout">
 
@@ -72,145 +72,179 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-
-                    <TextView
-                        android:id="@+id/text_event_title"
-                        style="@style/TextViewFormStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24dp"
-                        android:text="Event Title"
-                        app:layout_constraintStart_toStartOf="@+id/text_create_event"
-                        app:layout_constraintTop_toBottomOf="@+id/text_create_event" />
-
-                    <EditText
-                        android:id="@+id/input_event_title"
-                        style="@style/EditTextFormStyle"
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="4dp"
-                        android:hint="Event Title"
-                        android:text="@={viewmodel.eventTitle}"
-                        android:textColorHint="#bdbdbd"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_event_title" />
-
-                    <TextView
-                        android:id="@+id/text_event_description"
-                        style="@style/TextViewFormStyle"
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="Event Description"
+                        app:cardCornerRadius="4dp"
+                        app:cardElevation="4dp"
+                        app:cardUseCompatPadding="true"
+                        app:contentPadding="8dp"
                         app:layout_constraintStart_toStartOf="@+id/text_create_event"
-                        app:layout_constraintTop_toBottomOf="@+id/input_event_title" />
+                        app:layout_constraintTop_toBottomOf="@+id/text_create_event">
 
-                    <EditText
-                        android:id="@+id/input_event_description"
-                        style="@style/EditTextFormStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="4dp"
-                        android:hint="Event Description"
-                        android:inputType="textMultiLine"
-                        android:maxLines="5"
-                        android:text="@={viewmodel.eventDescription}"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_event_description" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
-                    <TextView
-                        android:id="@+id/text_total_tickets"
-                        style="@style/TextViewFormStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="Total Tickets"
-                        app:layout_constraintStart_toStartOf="@+id/text_create_event"
-                        app:layout_constraintTop_toBottomOf="@+id/input_event_description" />
+                            <TextView
+                                android:id="@+id/text_event_title"
+                                style="@style/TextViewFormStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="8dp"
+                                android:text="Event Title"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
-                    <EditText
-                        android:id="@+id/input_total_tickets"
-                        style="@style/EditTextFormStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="4dp"
-                        android:hint="Total Tickets"
-                        android:inputType="numberSigned"
-                        android:text="@={viewmodel.totalTickets}"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_total_tickets" />
+                            <EditText
+                                android:id="@+id/input_event_title"
+                                style="@style/EditTextFormStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:drawableEnd="@drawable/ic_round_assignment"
+                                android:hint="Event Title"
+                                android:text="@={viewmodel.eventTitle}"
+                                android:textColorHint="#bdbdbd"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/text_event_title" />
 
-                    <TextView
-                        android:id="@+id/text_ticket_price"
-                        style="@style/TextViewFormStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="Ticket Price"
-                        app:layout_constraintStart_toStartOf="@+id/text_create_event"
-                        app:layout_constraintTop_toBottomOf="@+id/input_total_tickets" />
+                            <TextView
+                                android:id="@+id/text_event_description"
+                                style="@style/TextViewFormStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:text="Event Description"
+                                app:layout_constraintStart_toStartOf="@+id/text_event_title"
+                                app:layout_constraintTop_toBottomOf="@+id/input_event_title" />
 
-                    <EditText
-                        android:id="@+id/input_ticket_price"
-                        style="@style/EditTextFormStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="4dp"
-                        android:hint="Ticket Price"
-                        android:inputType="numberSigned"
-                        android:text="@={viewmodel.ticketPrice}"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_ticket_price" />
+                            <EditText
+                                android:id="@+id/input_event_description"
+                                style="@style/EditTextFormStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:drawableEnd="@drawable/ic_round_article"
+                                android:hint="Event Description"
+                                android:inputType="textMultiLine"
+                                android:maxLines="5"
+                                android:text="@={viewmodel.eventDescription}"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/text_event_description" />
 
-                    <TextView
-                        android:id="@+id/text_ticket_image"
-                        style="@style/TextViewFormStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="Ticket Image"
-                        app:layout_constraintStart_toStartOf="@+id/text_create_event"
-                        app:layout_constraintTop_toBottomOf="@+id/input_ticket_price" />
+                            <TextView
+                                android:id="@+id/text_total_tickets"
+                                style="@style/TextViewFormStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:text="Total Tickets"
+                                app:layout_constraintStart_toStartOf="@+id/text_event_title"
+                                app:layout_constraintTop_toBottomOf="@+id/input_event_description" />
 
-                    <EditText
-                        android:id="@+id/input_ticket_image"
-                        style="@style/EditTextClickableStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="4dp"
-                        android:drawableEnd="@drawable/ic_arrow_drop_down"
-                        android:hint="Select Image"
-                        android:text="@={viewmodel.ticketImage}"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/text_ticket_image" />
+                            <EditText
+                                android:id="@+id/input_total_tickets"
+                                style="@style/EditTextFormStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:drawableEnd="@drawable/ic_round_point_of_sale"
+                                android:hint="Total Tickets"
+                                android:inputType="numberSigned"
+                                android:text="@={viewmodel.totalTickets}"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/text_total_tickets" />
 
-                    <Button
-                        android:id="@+id/button_submit"
-                        style="@style/ButtonActionStyle"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="48dp"
-                        android:onClick="@{viewmodel::onSubmitButtonClick}"
-                        android:text="Submit"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/input_ticket_image"
-                        app:layout_constraintWidth_percent="0.8" />
+                            <TextView
+                                android:id="@+id/text_ticket_price"
+                                style="@style/TextViewFormStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:text="Ticket Price"
+                                app:layout_constraintStart_toStartOf="@+id/text_event_title"
+                                app:layout_constraintTop_toBottomOf="@+id/input_total_tickets" />
+
+                            <EditText
+                                android:id="@+id/input_ticket_price"
+                                style="@style/EditTextFormStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:drawableEnd="@drawable/ic_round_attach_money"
+                                android:hint="Ticket Price"
+                                android:inputType="numberSigned"
+                                android:text="@={viewmodel.ticketPrice}"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/text_ticket_price" />
+
+                            <TextView
+                                android:id="@+id/text_ticket_image"
+                                style="@style/TextViewFormStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:text="Ticket Image"
+                                app:layout_constraintStart_toStartOf="@+id/text_event_title"
+                                app:layout_constraintTop_toBottomOf="@+id/input_ticket_price" />
+
+                            <ImageView
+                                android:id="@+id/image_add_ticket"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="16dp"
+                                android:background="@drawable/light_gray_rounded_bg_16r"
+                                android:padding="16dp"
+                                android:src="@drawable/ic_add"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/text_ticket_image"
+                                app:tint="@color/colorPrimaryDark" />
+
+                            <ImageView
+                                android:id="@+id/image_ticket"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="16dp"
+                                android:visibility="invisible"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/text_ticket_image" />
+
+                            <Button
+                                android:id="@+id/button_submit"
+                                style="@style/ButtonActionStyle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="24dp"
+                                android:layout_marginBottom="24dp"
+                                android:onClick="@{viewmodel::onSubmitButtonClick}"
+                                android:text="Submit"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/image_add_ticket"
+                                app:layout_constraintWidth_percent="0.8" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

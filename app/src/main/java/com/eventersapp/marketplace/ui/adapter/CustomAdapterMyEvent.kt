@@ -67,8 +67,6 @@ class CustomAdapterMyEvent : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     fun setData(newMyEvent: ArrayList<MyEventListResponse.Data?>?) {
         if (newMyEvent != null) {
-            if (myEventList.isNotEmpty())
-                myEventList.removeAt(myEventList.size - 1)
             myEventList.clear()
             myEventList.addAll(newMyEvent)
         } else {

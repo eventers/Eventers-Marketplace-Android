@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_signup_graph"
+    android:id="@+id/nav_graph"
     app:startDestination="@id/signupScreenFragment">
 
     <fragment
@@ -165,6 +165,9 @@
         <action
             android:id="@+id/action_accountSettingsFragment_to_addNewAccountFragment"
             app:destination="@id/addNewAccountFragment" />
+        <action
+            android:id="@+id/action_accountSettingsFragment_to_accountSettingsMoreOptionBottomDialogFragment"
+            app:destination="@id/accountSettingsMoreOptionBottomDialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/addNewAccountFragment"
@@ -192,6 +195,13 @@
         android:label="RecoverPassphraseFragment"
         tools:layout="@layout/fragment_recover_passphrase">
 
+        <action
+            android:id="@+id/action_recoverPassphraseFragment_to_scanFragment"
+            app:destination="@id/scanFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/backupPassphraseFragment"
@@ -205,6 +215,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_backupPassphraseFragment_to_showPassphraseQRCodeBottomDialogFragment"
+            app:destination="@id/showPassphraseQRCodeBottomDialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/verifyRecoveryPhraseFragment"
@@ -250,5 +263,91 @@
             app:popUpTo="@id/accountSettingsFragment"
             app:popUpToInclusive="true" />
 
+    </fragment>
+    <fragment
+        android:id="@+id/scanFragment"
+        android:name="com.eventersapp.marketplace.ui.dashboard.ScanFragment"
+        android:label="ScanFragment"
+        tools:layout="@layout/fragment_scan" />
+    <dialog
+        android:id="@+id/showPassphraseQRCodeBottomDialogFragment"
+        android:name="com.eventersapp.marketplace.ui.accountsettings.ShowPassphraseQRCodeBottomDialogFragment"
+        android:label="ShowPassphraseQRCodeBottomDialogFragment"
+        tools:layout="@layout/show_passphrase_qr_code_bottom_sheet">
+        <argument
+            android:name="passphrase"
+            app:argType="string" />
+    </dialog>
+    <dialog
+        android:id="@+id/accountSettingsMoreOptionBottomDialogFragment"
+        android:name="com.eventersapp.marketplace.ui.accountsettings.AccountSettingsMoreOptionBottomDialogFragment"
+        android:label="AccountSettingsMoreOptionBottomDialogFragment"
+        tools:layout="@layout/account_settings_more_option_bottom_sheet">
+        <argument
+            android:name="account_detail"
+            app:argType="com.eventersapp.marketplace.data.model.Account"
+            />
+        <action
+            android:id="@+id/action_accountSettingsMoreOptionBottomDialogFragment_to_viewPassphraseBottomDialogFragment"
+            app:destination="@id/viewPassphraseBottomDialogFragment" />
+        <action
+            android:id="@+id/action_accountSettingsMoreOptionBottomDialogFragment_to_editAccountNameBottomDialogFragment"
+            app:destination="@id/editAccountNameBottomDialogFragment" />
+        <action
+            android:id="@+id/action_accountSettingsMoreOptionBottomDialogFragment_to_removeAccountBottomDialogFragment"
+            app:destination="@id/removeAccountBottomDialogFragment" />
+        <action
+            android:id="@+id/action_accountSettingsMoreOptionBottomDialogFragment_to_rekeyAccountFragment"
+            app:destination="@id/rekeyAccountFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </dialog>
+    <dialog
+        android:id="@+id/viewPassphraseBottomDialogFragment"
+        android:name="com.eventersapp.marketplace.ui.accountsettings.ViewPassphraseBottomDialogFragment"
+        android:label="ViewPassphraseBottomDialogFragment"
+        tools:layout="@layout/view_passphrase_bottom_sheet">
+        <argument
+            android:name="account_detail"
+            app:argType="com.eventersapp.marketplace.data.model.Account"
+            />
+        <action
+            android:id="@+id/action_viewPassphraseBottomDialogFragment_to_showPassphraseQRCodeBottomDialogFragment"
+            app:destination="@id/showPassphraseQRCodeBottomDialogFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/editAccountNameBottomDialogFragment"
+        android:name="com.eventersapp.marketplace.ui.accountsettings.EditAccountNameBottomDialogFragment"
+        android:label="EditAccountNameBottomDialogFragment"
+        tools:layout="@layout/edit_account_name_bottom_sheet">
+        <argument
+            android:name="account_detail"
+            app:argType="com.eventersapp.marketplace.data.model.Account"
+            />
+    </dialog>
+    <dialog
+        android:id="@+id/removeAccountBottomDialogFragment"
+        android:name="com.eventersapp.marketplace.ui.accountsettings.RemoveAccountBottomDialogFragment"
+        android:label="RemoveAccountBottomDialogFragment"
+        tools:layout="@layout/remove_account_bottom_sheet">
+        <argument
+            android:name="account_detail"
+            app:argType="com.eventersapp.marketplace.data.model.Account"
+            />
+    </dialog>
+    <fragment
+        android:id="@+id/rekeyAccountFragment"
+        android:name="com.eventersapp.marketplace.ui.rekeyaccount.RekeyAccountFragment"
+        android:label="RekeyAccountFragment"
+        tools:layout="@layout/fragment_rekey_account">
+        <argument
+            android:name="account_detail"
+            app:argType="com.eventersapp.marketplace.data.model.Account"
+            />
+        <action
+            android:id="@+id/action_rekeyAccountFragment_to_addNewAccountFragment"
+            app:destination="@id/addNewAccountFragment" />
     </fragment>
 </navigation>

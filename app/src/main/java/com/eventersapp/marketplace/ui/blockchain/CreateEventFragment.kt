@@ -2,6 +2,7 @@ package com.eventersapp.marketplace.ui.blockchain
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -67,13 +68,16 @@ class CreateEventFragment : Fragment(), KodeinAware {
         super.onActivityResult(requestCode, resultCode, data)
         when (resultCode) {
             Activity.RESULT_OK -> {
+                dataBind.imageTicket.show()
+                dataBind.imageAddTicket.invisible()
                 //You can also get File Path from intent
                 val imgFile: File? = ImagePicker.getFile(data)
                 val filePath: String? = ImagePicker.getFilePath(data)
                 val fileName: String = imgFile?.name ?: ""
                 viewModel.setFilePath(filePath ?: "")
                 viewModel.setMediaName(fileName)
-                dataBind.inputTicketImage.setText(filePath)
+                val bitmap = BitmapFactory.decodeFile(imgFile?.absolutePath)
+                dataBind.imageTicket.setImageBitmap(bitmap)
 
             }
             ImagePicker.RESULT_ERROR -> {
@@ -91,7 +95,10 @@ class CreateEventFragment : Fragment(), KodeinAware {
         dataBind.toolbar.setNavigationOnClickListener {
             findNavController().popBackStack()
         }
-        dataBind.inputTicketImage.setOnClickListener {
+        dataBind.imageAddTicket.setOnClickListener {
+            imagePicker()
+        }
+        dataBind.imageTicket.setOnClickListener {
             imagePicker()
         }
     }
